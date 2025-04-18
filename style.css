@@ -1,0 +1,213 @@
+html, body {
+
+    font-family: 'Press Start 2P', monospace;
+}
+
+#game {
+    width: 790px;
+    height: 250px;
+    color: black;
+    /* background-color: skyblue; */
+    position: relative;
+    overflow: hidden;
+    background-color: skyblue;
+    background-image: url('assets/bg.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: #0f0c29 solid 12px;
+    border-radius: 10px;
+}
+
+#player {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    bottom: 0;
+    left: 70px; 
+    /* background-image: url('assets/mario-8053171_640-removebg-preview.png');  */
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: #ccc solid;
+    border-style: dashed;
+}
+
+.character {
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border 0.2s;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.character[data-character="mario"] {background-image: url('assets/mario-8053171_640-removebg-preview.png');}
+.character[data-character="luigi"] {background-image: url('assets/luigiii-removebg-preview.png');}
+.character[data-character="donkey-kong"] {background-image: url('assets/63b0dbdcdc45a0b.png');}
+
+
+.mario {background-image: url('assets/mario-8053171_640-removebg-preview.png');}
+.luigi {background-image: url('assets/luigiii-removebg-preview.png');}
+.donkey-kong {background-image: url('assets/63b0dbdcdc45a0b.png');}
+
+
+.bomb {
+    width: 50px;
+    height: 50px;
+    background-image: url('assets/bomb.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    bottom: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+#game-over-screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 30px;
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+}
+#game-over-text {
+    font-size: 20px;
+}
+#restart-btn {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 20px;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+#restart-btn:hover {
+    background-color: #218838;
+}
+
+#livesDisplay, #scoreDisplay {
+    margin: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    color: white;
+}
+
+#start-btn {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 20px;
+    padding: 10px 20px;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+#start-btn:hover {
+    background-color: #0056b3;
+}
+#start-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+#character-selection {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+.character.selected {
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 10px;
+}
+#start-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background: linear-gradient(to bottom, #87ceeb, #f0f8ff); */
+
+    background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    color: black;
+}
+
+#start-screen h1 {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 100px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+#pause-menu {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    font-family: 'Press Start 2P', monospace;
+    text-align: center;
+    padding: 30px;
+    border-radius: 10px;
+    z-index: 20;
+}
+
+#pause-menu.hidden {
+    display: none;
+}
+
+#pause-menu button {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 16px;
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#pause-menu button:hover {
+    background-color: #0056b3;
+}
+
+#sound-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: white;
+    z-index: 10;
+    transition: transform 0.2s;
+}
+
+#sound-btn:hover {
+    transform: scale(1.2);
+}

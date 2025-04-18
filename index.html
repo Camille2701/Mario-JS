@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mario JS</title>
+    <meta name="description" content="Un jeu de plateforme inspiré de Mario, développé en JavaScript.">
+    <meta name="keywords" content="Mario, JavaScript, jeu, plateforme, développement">
+    <meta name="author" content="Camille Veillard">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+
+    <div id="start-screen">
+        <h1 id="title">Mario JS</h1>
+        <div id="character-selection">
+            <div class="character" data-character="mario"></div>
+            <div class="character" data-character="luigi"></div>
+            <div class="character" data-character="donkey-kong"></div>
+        </div>
+        <!-- <div id="start-btn">Jouer</div> -->
+        <button id="start-btn" disabled>Jouer</button>
+    </div>
+    
+    <div id="pause-menu" class="hidden">
+        <h1 id="pause-text">Pause</h1>
+        <button id="resume-btn">Reprendre</button>
+        <button id="restart-btn">Recommencer</button>
+        <button id="main-menu-btn">Menu Principal</button>
+        <button id="sound-btn">🔉</button>
+    </div>
+
+    <div id="game" class="hidden">
+        <div id="livesDisplay">❤️❤️❤️</div>
+        <div id="scoreDisplay">Score : 0</div>
+
+
+        <div id="player"></div>
+
+        <div id="game-over-screen" class="hidden">
+            <h1 id="game-over-text">Game over !</h1>
+            <button id="restart-btn">Rejouer</button>
+        </div>
+    </div>
+    
+    <div id="stats">
+        <p id="gamesPlayed">Games Played: 0</p>
+        <p id="highScore">High Score: 0</p>
+        <p id="totalTime">Average Score: 0</p>
+        <p id="winRate">Win Rate: 0%</p>
+        <p id="mainCharacter">Main Character: None</p>
+    </div>
+
+
+    <div class="audio">
+        <audio id="menu-music" src="sounds/menu.mp3" preload="auto" loop></audio>
+        <audio id="game-music" src="sounds/game.mp3" preload="auto" loop></audio>
+    </div>
+    <script src="script.js" defer></script>
+</body>
+</html>
