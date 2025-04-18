@@ -17,6 +17,7 @@ let isSoundOn = true; // Variable pour suivre l'état du son
 
 const menuMusic = document.getElementById("menu-music");
 const gameMusic = document.getElementById("game-music");
+const gameOverMusic = document.getElementById("game-over-music");
 
 document.addEventListener('keydown', (event) => {
     if (event.key === 'ArrowRight') positionX += 10
@@ -128,6 +129,10 @@ function showGameOver() {
     screen.classList.remove('hidden')
     console.log('Game Over')
 
+    menuMusic.muted = true;
+    gameMusic.muted = true;
+    gameOverMusic.play();
+
     // stats
     scores.push(score) 
     gamesPlayed++
@@ -141,7 +146,14 @@ function showGameOver() {
 
 function startGame() {
     menuMusic.pause();
+    gameMusic.currentTime = 0;
     gameMusic.play();
+
+    if (!isSoundOn) {
+        gameMusic.muted = true;
+    } else {
+        gameMusic.muted = false;
+    }
 
     lives = 3
     score = 0
@@ -291,7 +303,18 @@ document.getElementById('restart-btn-pause').addEventListener('click', () => {
 
 // Bouton "Menu Principal"
 document.getElementById('main-menu-btn').addEventListener('click', () => {
+    // Ferme le menu de pause
     togglePauseMenu();
+
+    // Réinitialise l'état global du jeu
+    gameOver = true;
+    isPaused = false;
+
+    // Masque la section du jeu et affiche l'écran de démarrage
     document.getElementById('game').classList.add('hidden');
     document.getElementById('start-screen').classList.remove('hidden');
+
+    // Réinitialise les bombes et les timers
+    const bombs = document.querySelectorAll('.bomb');
+    bombs.forEach((bomb) => bomb.remove());
 });
