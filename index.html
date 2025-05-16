@@ -16,11 +16,15 @@
     <div id="start-screen">
         <h1 id="title">Mario JS</h1>
         <div id="character-selection">
-            <div class="character" data-character="mario"></div>
-            <div class="character" data-character="luigi"></div>
-            <div class="character" data-character="donkey-kong"></div>
+            <div class="character" data-character="mario" draggable="true"></div>
+            <div class="character" data-character="luigi" draggable="true"></div>
+            <div class="character" data-character="donkey-kong" draggable="true"></div>
         </div>
-        <!-- <div id="start-btn">Jouer</div> -->
+        <div id="drop-zone">
+            Dépose ton personnage ici!
+            <div id="drop-character"></div>
+        </div>
+
         <button id="start-btn" disabled>Jouer</button>
     </div>
     
